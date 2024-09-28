@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d7bd90-3c2e-43d8-b376-7f0cedebb475" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env_example.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.env_example.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/legalAI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/legalAI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/database/populate/populator.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/database/populate/populator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/factory/app_instance_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/factory/app_instance_creation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/factory/core_instances.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/factory/core_instances.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/factory/enum_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/factory/enum_creation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/factory/package_instances.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/factory/package_instances.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/models/data_transfer_objects/custom_exception_pool.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/models/data_transfer_objects/custom_exception_pool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/models/data_transfer_objects/dto_core_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/models/data_transfer_objects/dto_core_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/models/data_transfer_objects/dto_custom_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/models/data_transfer_objects/dto_custom_exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/models/data_transfer_objects/flask_error_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/models/data_transfer_objects/flask_error_handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/models/data_transfer_objects/swagger_custom_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/models/data_transfer_objects/swagger_custom_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/models/database_entities/reset_password_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/models/database_entities/reset_password_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/models/database_entities/token_block_list_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/models/database_entities/token_block_list_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/models/enums/database_enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/models/enums/database_enums.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/paths/folder_reference.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/paths/folder_reference.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/security/auth_endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/security/auth_endpoints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/security/jwt_error_handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/security/jwt_error_handlers.py" afterDir="false" />
-    </list>
+    <list default="true" id="b2d7bd90-3c2e-43d8-b376-7f0cedebb475" name="Changes" comment="aaaaaaaaaaa" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +57,7 @@
     "Batch.generate_diff_file.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Merging main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -123,11 +99,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727537764511</updated>
-      <workItem from="1727537765581" duration="3909000" />
+      <workItem from="1727537765581" duration="4208000" />
     </task>
+    <task id="LOCAL-00001" summary="aaaaaaaaaaa">
+      <option name="closed" value="true" />
+      <created>1727544196357</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727544196357</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="aaaaaaaaaaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="aaaaaaaaaaa" />
   </component>
 </project>
