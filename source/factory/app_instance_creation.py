@@ -12,6 +12,7 @@ from source.factory.package_instances import jwt_instance, db_instance
 from source.paths.folder_reference import get_static_folder_path
 
 from source.models.data_transfer_objects.flask_error_handlers import register_error_handlers
+from dotenv import load_dotenv
 
 
 def _recreate_database_tables(input_db_instance: SQLAlchemy):
@@ -34,10 +35,17 @@ def _create_postgres_connection_url() -> str:
     db_password = getenv("POSTGRES_PASSWORD")
     db_host = getenv("POSTGRES_HOST")
     db_port = getenv("POSTGRES_PORT")
+    all_data = [db_name, db_user, db_password, db_host, db_port]
+    all_tags = ["POSTGRES_DB_NAME", "POSTGRES_USER", "POSTGRES_PASSWORD", "POSTGRES_HOST", "POSTGRES_PORT"]
+    for data, tag in zip(all_data, all_tags):
+        if not data:
+            raise Exception(f"Missing required environment variable: {tag}")
     return f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
 
 
 def create_flask_app(recreate_db: bool = False) -> Flask:
+    load_dotenv()
+
     # Overall configs
     flask_app = Flask(__name__, static_folder=get_static_folder_path())
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = _create_postgres_connection_url()
