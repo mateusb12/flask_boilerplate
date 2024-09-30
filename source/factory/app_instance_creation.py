@@ -6,13 +6,14 @@ from sqlalchemy import MetaData
 
 from sqlalchemy import text
 
-from database.populate.populator import populate_pipeline
 from factory.enum_creation import _create_database_enums
 from source.factory.package_instances import jwt_instance, db_instance
 from source.paths.folder_reference import get_static_folder_path
 
 from source.models.data_transfer_objects.flask_error_handlers import register_error_handlers
 from dotenv import load_dotenv
+
+print("app_instance_creation.py imported!")
 
 
 def _recreate_database_tables(input_db_instance: SQLAlchemy):
@@ -26,7 +27,7 @@ def _recreate_database_tables(input_db_instance: SQLAlchemy):
 
     _create_database_enums(db_instance)
     input_db_instance.create_all()
-    print("Database recreated!")
+    print("Database tables recreated!")
 
 
 def _create_postgres_connection_url() -> str:
@@ -52,17 +53,18 @@ def create_flask_app(recreate_db: bool = False) -> Flask:
     flask_app.config['JWT_SECRET_KEY'] = 'marcelo'
     flask_app.config['FLASK_APP'] = 'app.py'
 
-    # Overall instance connections
-    jwt_instance.init_app(flask_app)
-    db_instance.init_app(flask_app)
-    register_error_handlers(flask_app)
-
-    if recreate_db:
-        with flask_app.app_context():
-            _recreate_database_tables(db_instance)
-    handle_app_cors(flask_app)
     with flask_app.app_context():
+        # Overall instance connections
+        jwt_instance.init_app(flask_app)
+        db_instance.init_app(flask_app)
+        register_error_handlers(flask_app)
+
+        if recreate_db:
+            _recreate_database_tables(db_instance)
+        handle_app_cors(flask_app)
+        from database.populate.populator import populate_pipeline
         populate_pipeline()
+
     return flask_app
 
 
