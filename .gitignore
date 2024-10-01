@@ -1,3 +1,4 @@
 /project_utils/commit_changes_generator/commit_changes.diff
 /.env
 .idea/
+/project_utils/*.json
