@@ -4,8 +4,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from business_logic.utils.exception_utils import handle_integrity_error
 from source.factory.package_instances import db_instance as db
 
-print("user_model.py imported!")
-
 
 class SystemUser(db.Model):
     __tablename__ = 'SystemUser'

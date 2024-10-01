@@ -1,6 +1,4 @@
-from models.database_entities.user_model import SystemUser
-
-print("populator.py imported!")
+from source.models.database_entities.user_model import SystemUser
 
 def populate_secondary_system_user():
     email = "test@example.com"

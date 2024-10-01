@@ -13,8 +13,6 @@ from source.paths.folder_reference import get_static_folder_path
 from source.models.data_transfer_objects.flask_error_handlers import register_error_handlers
 from dotenv import load_dotenv
 
-print("app_instance_creation.py imported!")
-
 
 def _recreate_database_tables(input_db_instance: SQLAlchemy):
     metadata = MetaData()
@@ -50,6 +48,7 @@ def create_flask_app(recreate_db: bool = False) -> Flask:
     # Overall configs
     flask_app = Flask(__name__, static_folder=get_static_folder_path())
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = _create_postgres_connection_url()
+    flask_app.config['SQLALCHEMY_ECHO'] = False
     flask_app.config['JWT_SECRET_KEY'] = 'marcelo'
     flask_app.config['FLASK_APP'] = 'app.py'
 
@@ -60,6 +59,7 @@ def create_flask_app(recreate_db: bool = False) -> Flask:
         register_error_handlers(flask_app)
 
         if recreate_db:
+            from source.models.database_entities.user_model import SystemUser
             _recreate_database_tables(db_instance)
         handle_app_cors(flask_app)
         from database.populate.populator import populate_pipeline
