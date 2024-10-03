@@ -1,2 +1,0 @@
-def getStaticFolderPath() -> Path:
-    return getRootFolderPath() / "static"

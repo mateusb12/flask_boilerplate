@@ -3,6 +3,8 @@
 .idea/
 /project_utils/*.json
 
+*~
+
 
 frontend/node_modules
 frontend/.pnp
