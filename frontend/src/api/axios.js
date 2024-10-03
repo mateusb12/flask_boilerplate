@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {QueryClient, useMutation, useQuery} from '@tanstack/react-query';
 
-export const BaseURL = process.env.VITE_BASE_URL;
+export const BaseURL = process.env.REACT_APP_BASE_URL;
 const timeout = 1000 * 10;
 
 export const api = axios.create({
