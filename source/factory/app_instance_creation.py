@@ -69,6 +69,10 @@ def create_flask_app(recreate_db: bool = False) -> Flask:
 
 
 def handle_app_cors(input_app: Flask):
-    cors_url = ['http://localhost:5173', 'http://127.0.0.1:5173']
+    ports = [3000, 5173]
+    cors_url = []
+    for port in ports:
+        cors_url.append(f'http://localhost:{port}')
+        cors_url.append(f'http://127.0.0.1:{port}')
     CORS(input_app, resources={r"/*": {"origins": cors_url}})
 
