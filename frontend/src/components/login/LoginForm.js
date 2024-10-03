@@ -1,13 +1,34 @@
 import React, { useState } from "react";
 import './LoginForm.css';
+import {useService} from "../../api/axios";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  const { usePost } = useService();
+  const { mutate: loginUser } = usePost("login", "/auth/login");
 
   const handleLogin = (e) => {
     e.preventDefault();
-    alert(`Hello, ${username}! You have logged in.`);
+    setError(null);
+
+    const loginData = {
+      login: username,
+      password: password,
+    };
+
+    loginUser(loginData, {
+      onSuccess: (response) => {
+        alert(`Hello, ${response.data.username}! You have successfully logged in.`);
+        // You can also save the access_token if needed
+        console.log(response.data.tokens.access_token);
+      },
+      onError: (err) => {
+        setError("Login failed. Please check your credentials.");
+      },
+    });
   };
 
   return (
@@ -34,6 +55,7 @@ function Login() {
             required
           />
         </div>
+        {error && <p className="error-message">{error}</p>}
         <button type="submit">Login</button>
       </form>
     </div>

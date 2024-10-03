@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import {QueryClient, useMutation, useQuery} from '@tanstack/react-query';
 
 export const BaseURL = process.env.VITE_BASE_URL;
 const timeout = 1000 * 10;
@@ -17,6 +17,15 @@ export const ErrorTypes = {
   BadRequest: 'BAD_REQUEST',
   EntityNotFoundException: 'EntityNotFoundException',
 };
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+})
 
 
 export const useService = () => {
