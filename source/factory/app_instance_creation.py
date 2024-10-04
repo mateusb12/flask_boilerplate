@@ -7,13 +7,14 @@ from sqlalchemy import MetaData
 from sqlalchemy import text
 
 from factory.enum_creation import _create_database_enums
-from source.factory.package_instances import jwt_instance, get_db_instance
+from source.factory.package_instances import get_jwt_instance, get_db_instance
 from source.paths.folder_reference import get_static_folder_path
 
 from source.models.data_transfer_objects.flask_error_handlers import register_error_handlers
 from dotenv import load_dotenv
 
 db_instance = get_db_instance()
+jwt_instance = get_jwt_instance()
 
 
 def _recreate_database_tables(input_db_instance: SQLAlchemy):

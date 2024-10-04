@@ -1,6 +1,8 @@
 from datetime import datetime
 
-from factory.package_instances import jwt_instance
+from factory.package_instances import get_jwt_instance
+
+jwt_instance = get_jwt_instance()
 
 
 @jwt_instance.expired_token_loader

@@ -8,6 +8,8 @@ from business_logic.utils.decorator_utils import singleton
 def get_db_instance():
     return SQLAlchemy()
 
-jwt_instance = JWTManager()
+@singleton
+def get_jwt_instance():
+    return JWTManager()
 
 print("package_instances.py executed!")
