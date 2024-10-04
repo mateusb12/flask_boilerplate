@@ -2,9 +2,7 @@ import sqlalchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from business_logic.utils.exception_utils import handle_integrity_error
-from factory.package_instances import get_db_instance
-
-db = get_db_instance()
+from factory.central_db_instance import db_instance as db
 
 
 class SystemUser(db.Model):

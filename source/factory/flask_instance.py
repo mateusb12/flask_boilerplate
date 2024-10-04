@@ -3,11 +3,6 @@ from os import getenv
 from dotenv import load_dotenv
 from flask import Flask
 from flask_cors import CORS
-from flask_jwt_extended import JWTManager
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData, text
-
-from factory.enum_creation import _create_database_enums
 from models.data_transfer_objects.flask_error_handlers import register_error_handlers
 from paths.folder_reference import get_static_folder_path
 
@@ -24,20 +19,6 @@ def _create_postgres_connection_url() -> str:
         if not data:
             raise Exception(f"Missing required environment variable: {tag}")
     return f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
-
-
-def _recreate_database_tables(input_db_instance: SQLAlchemy):
-    metadata = MetaData()
-    metadata.reflect(input_db_instance.engine)
-    metadata.drop_all(input_db_instance.engine)
-
-    # Creating unaccented extension
-    with input_db_instance.engine.connect() as connection:
-        connection.execute(text("CREATE EXTENSION IF NOT EXISTS unaccent;"))
-
-    _create_database_enums(db_instance)
-    input_db_instance.create_all()
-    print("Database tables recreated.")
 
 
 def handle_app_cors(input_app: Flask):
@@ -59,9 +40,3 @@ app.config['FLASK_APP'] = 'app.py'
 
 handle_app_cors(app)
 register_error_handlers(app)
-
-db_instance = SQLAlchemy(app)
-jwt_instance = JWTManager(app)
-with app.app_context():
-    _recreate_database_tables(db_instance)
-

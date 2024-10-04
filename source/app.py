@@ -1,7 +1,7 @@
 import os
 
 from business_logic.utils.env_utils import get_flask_debug_mode
-from factory.core_instances import socket_instance, app
+from factory.flask_instance import app
 from security.auth_endpoints import auth_bp
 
 print("app.py executed!")
