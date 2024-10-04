@@ -1,6 +1,9 @@
 from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.exc import IntegrityError
-from factory.package_instances import db_instance as db
+
+from factory.package_instances import get_db_instance
+
+db = get_db_instance()
 
 
 class TokenBlockList(db.Model):

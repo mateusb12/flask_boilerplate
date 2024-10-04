@@ -1,9 +1,7 @@
+from business_logic.utils.decorator_utils import singleton
 from service.system_user_service import SystemUserService
 
-_system_user_service = None
-
+@singleton
 def get_system_user_service():
-    global _system_user_service
-    if _system_user_service is None:
-        _system_user_service = SystemUserService()
-    return _system_user_service
+    print("service_instances.py executed!")
+    return SystemUserService()

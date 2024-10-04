@@ -7,11 +7,13 @@ from sqlalchemy import MetaData
 from sqlalchemy import text
 
 from factory.enum_creation import _create_database_enums
-from source.factory.package_instances import jwt_instance, db_instance
+from source.factory.package_instances import jwt_instance, get_db_instance
 from source.paths.folder_reference import get_static_folder_path
 
 from source.models.data_transfer_objects.flask_error_handlers import register_error_handlers
 from dotenv import load_dotenv
+
+db_instance = get_db_instance()
 
 
 def _recreate_database_tables(input_db_instance: SQLAlchemy):
@@ -25,7 +27,7 @@ def _recreate_database_tables(input_db_instance: SQLAlchemy):
 
     _create_database_enums(db_instance)
     input_db_instance.create_all()
-    print("Database tables recreated!")
+    print("Database tables recreated.")
 
 
 def _create_postgres_connection_url() -> str:
@@ -64,6 +66,7 @@ def create_flask_app(recreate_db: bool = False) -> Flask:
         from database.populate.populator import populate_pipeline
         populate_pipeline()
 
+    print("Flask app created! (app_instance_creation.py)")
     return flask_app
 
 

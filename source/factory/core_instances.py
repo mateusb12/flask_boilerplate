@@ -5,3 +5,5 @@ from flask_socketio import SocketIO
 app = create_flask_app(recreate_db=True)
 swagger_api = CustomApi(app, version='1.0', title='Chat API', ordered=True)
 socket_instance = SocketIO(app, cors_allowed_origins="*", logger=False, engineio_logger=False)
+
+print("core_instances.py executed!")

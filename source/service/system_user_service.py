@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 from business_logic.utils.jwt_utils import validate_token_and_get_message
 from factory.app_instance_creation import create_flask_app
-from factory.package_instances import db_instance
+from factory.package_instances import get_db_instance
 from models.data_transfer_objects.dto_custom_exceptions import EntityAlreadyExistsException, EntityNotFoundException, \
     MissingBodyParameterException, InvalidLoginCredentialsException
 from models.database_entities.user_model import SystemUser
@@ -12,6 +12,7 @@ from repository.system_user_repository import SystemUserRepository
 
 class SystemUserService:
     def __init__(self):
+        db_instance = get_db_instance()
         self.system_user_repository = SystemUserRepository(db_instance)
 
     def register_user_service(self, data: dict) -> SystemUser:

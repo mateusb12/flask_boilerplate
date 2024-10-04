@@ -1,6 +1,9 @@
 from sqlalchemy.exc import IntegrityError
 from datetime import datetime
-from factory.package_instances import db_instance as db
+
+from factory.package_instances import get_db_instance
+
+db = get_db_instance()
 
 
 class ResetPasswordToken(db.Model):

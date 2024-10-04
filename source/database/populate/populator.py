@@ -12,7 +12,7 @@ def populate_secondary_system_user():
 
 def populate_pipeline():
     populate_secondary_system_user()
-    print("Database populated!")
+    print("Database populated.")
 
 
 def main():
