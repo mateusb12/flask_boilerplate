@@ -9,10 +9,10 @@ from models.data_transfer_objects.dto_custom_exceptions import EntityAlreadyExis
 from models.database_entities.user_model import SystemUser
 from repository.system_user_repository import SystemUserRepository
 
+db_instance = get_db_instance()
 
 class SystemUserService:
     def __init__(self):
-        db_instance = get_db_instance()
         self.system_user_repository = SystemUserRepository(db_instance)
 
     def register_user_service(self, data: dict) -> SystemUser:

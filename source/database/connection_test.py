@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-from factory.app_instance_creation import _create_postgres_connection_url
+from factory.flask_instance import _create_postgres_connection_url
 
 load_dotenv()
 # Replace the placeholders with your actual database credentials

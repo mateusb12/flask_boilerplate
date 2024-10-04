@@ -3,6 +3,7 @@ from typing import List
 from factory.app_instance_creation import create_flask_app
 from typing import Optional
 
+from factory.package_instances import get_db_instance
 from models.database_entities.user_model import SystemUser
 
 db_instance = get_db_instance()
