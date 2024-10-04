@@ -7,7 +7,7 @@ from flask_jwt_extended import create_refresh_token, jwt_required
 
 from source.models.database_entities.token_block_list_model import TokenBlockList
 from source.factory.package_instances import jwt_instance
-from source.factory.service_instances import system_user_service
+from source.factory.service_instances import get_system_user_service
 from security.jwt_error_handlers import timedelta_to_str
 
 auth_bp = Blueprint('auth', __name__)
@@ -21,7 +21,7 @@ def login_user():
         data = request.get_json()
     except UnsupportedMediaType as e:
         return jsonify({'error': 'Invalid or missing JSON body', 'details': str(e)}), 400
-    user = system_user_service.login_user_service(data)
+    user = get_system_user_service().login_user_service(data)
     login = data.get('login')
     access_token = create_access_token(identity=login, expires_delta=EXPIRE_TIME_SECONDS)
     refresh_token = create_refresh_token(identity=login, expires_delta=EXPIRE_TIME_SECONDS)

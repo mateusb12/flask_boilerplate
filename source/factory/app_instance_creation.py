@@ -52,12 +52,11 @@ def create_flask_app(recreate_db: bool = False) -> Flask:
     flask_app.config['JWT_SECRET_KEY'] = 'marcelo'
     flask_app.config['FLASK_APP'] = 'app.py'
 
-    with flask_app.app_context():
-        # Overall instance connections
-        jwt_instance.init_app(flask_app)
-        db_instance.init_app(flask_app)
-        register_error_handlers(flask_app)
+    jwt_instance.init_app(flask_app)
+    db_instance.init_app(flask_app)
+    register_error_handlers(flask_app)
 
+    with flask_app.app_context():
         if recreate_db:
             from source.models.database_entities.user_model import SystemUser
             _recreate_database_tables(db_instance)
